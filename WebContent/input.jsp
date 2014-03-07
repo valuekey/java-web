@@ -8,7 +8,8 @@
 </head>
 <body>
 <%
-    out.println("HELLO~");
+String info = request.getParameter("info");
+out.print(info);
 %>
 </body>
 </html>
