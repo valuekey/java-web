@@ -9,11 +9,32 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <%
+String searchCityName = null;
+Integer index = null;
+int showOnePageCount = 100;
+
+if (request.getParameter("index") != null && !request.getParameter("index").equals("")) {
+    try {
+        index = Integer.parseInt(request.getParameter("index")) < 0 ? 0 : Integer.parseInt(request.getParameter("index"));
+    } catch (Exception e) {}
+} else {
+    index = 0;
+}
+
+if (request.getParameter("searchCityName") != null && !request.getParameter("searchCityName").equals("")) {
+    try {
+        searchCityName = request.getParameter("searchCityName");
+    } catch (Exception e) {}
+} else {
+    searchCityName = "Search!~";
+}
+
+
 Connection conn = null;
 PreparedStatement pstmt = null;
 ResultSet rs = null;
@@ -21,8 +42,50 @@ ResultSet rs = null;
 try{
     Class.forName(CommonConsts.MYSQL_DRIVER);
     conn = (Connection) DriverManager.getConnection(CommonConsts.MYSQL_URL, CommonConsts.MYSQL_USER, CommonConsts.MYSQL_PASSWORD);
-    String sql = "select id, name, countrycode, district, population from city";
-    pstmt = (PreparedStatement) conn.prepareStatement(sql);
+    String sqlCount = "select count(1) from city";
+    String sqlCountSearch = "select count(1) from city where name like ?";
+    
+    if (!searchCityName.equals("Search!~")) {
+        pstmt = (PreparedStatement) conn.prepareStatement(sqlCountSearch);
+        pstmt.setString(1, "%" + searchCityName + "%");
+    } else {
+        pstmt = (PreparedStatement) conn.prepareStatement(sqlCount);
+    }
+    
+    rs = pstmt.executeQuery();
+    
+    int count = 0;
+    
+    if (rs.next()) {
+        count = rs.getInt(1);
+    }
+    if (index.intValue() * showOnePageCount > count) {
+        index = count/showOnePageCount;
+    }
+    %>
+        <form action="list_emp.jsp" method="post" name="searchAndLink">
+            <a href="list_emp.jsp?searchCityName=<%=searchCityName%>">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="list_emp.jsp?index=<%=index-1%>&searchCityName=<%=searchCityName%>">上一页</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="list_emp.jsp?index=<%=index+1%>&searchCityName=<%=searchCityName%>">下一页</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="list_emp.jsp?index=<%=count/showOnePageCount%>&searchCityName=<%=searchCityName%>">尾页</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" name="searchCityName" value="<%=searchCityName%>">
+        </form>
+    <%
+    if (index.intValue() * showOnePageCount < count) {
+    
+    String sql = "select id, name, countrycode, district, population from city limit ?, ?";
+    String sqlSearch = "select id, name, countrycode, district, population from city WHERE name like ? limit ?, ?";
+    
+    if (!searchCityName.equals("Search!~")) {
+        pstmt = (PreparedStatement) conn.prepareStatement(sqlSearch);
+        pstmt.setString(1, "%" + searchCityName + "%");
+        pstmt.setInt(2, index.intValue() * showOnePageCount);
+        pstmt.setInt(3, (index.intValue() + 1) * showOnePageCount);
+    } else {
+        pstmt = (PreparedStatement) conn.prepareStatement(sql);
+        pstmt.setInt(1, index.intValue() * showOnePageCount);
+        pstmt.setInt(2, (index.intValue() + 1) * showOnePageCount);
+    }
     
     rs = pstmt.executeQuery();
 
@@ -51,6 +114,7 @@ try{
             <td><%=population%></td>
         </tr>
         <%
+    }
     }
     %>
 <%
