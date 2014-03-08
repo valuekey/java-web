@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function yanzheng(){
+	var _bianhao = document.yanzhengForm.bianhao.value;
+	var _name = document.yanzhengForm.name.value;
+	var _job = document.yanzhengForm.job.value;
+	var _date = document.yanzhengForm.date.value;
+	var _gongzi = document.yanzhengForm.gongzi.value;
+	var _jiangjin = document.yanzhengForm.jiangjin.value;
+	
+
+    if(!/^\d+$/.test(_bianhao)){
+    	bianhao.innerText = "格式错误！只能是数字。";
+    } else {
+    	bianhao.innerText = "";
+    }
+    
+    if(/^\s*$/.test(_name)){
+    	name1.innerText = "格式错误！不能为空。";
+    }
+    else {
+    	name1.innerText = "";
+    }
+    
+    if(/^\s*$/.test(_job)){
+        job.innerText = "格式错误！不能为空。";
+    }
+    else {
+    	job.innerText = "";
+    }
+    if(!/^\d{2,4}(-\d{1,2}){2}$/.test(_date)){
+    	date.innerText = "格式错误！必须是日期格式，如2010-09-19。";
+    }
+    else {
+    	date.innerText = "";
+    }
+    
+    if(!/^\d+(\.\d+){0,1}$/.test(_gongzi)){
+    	gongzi.innerText = "格式错误！必须是数字（小数）。";
+    }
+    else {
+    	gongzi.innerText = "";
+    }
+    if(!/^\d+(\.\d+){0,1}$/.test(_jiangjin)){
+    	jiangjin.innerText = "格式错误！必须是数字（小数）。";
+    }
+    else {
+    	jiangjin.innerText = "";
+    }
+    
+}
+</script>
+</head>
+<body>
+<form action="#" name="yanzhengForm">
+编号：<input type="text" name="bianhao"><font color="RED"><label id="bianhao"></label></font><br>
+姓名：<input type="text" name="name"><font color="RED"><label id="name1"></label></font><br>
+工作：<input type="text" name="job"><font color="RED"><label id="job"></label></font><br>
+日期:<input type="text" name="date"><font color="RED"><label id="date"></label></font><br>
+工资：<input type="text" name="gongzi"><font color="RED"><label id="gongzi"></label></font><br>
+奖金：<input type="text" name="jiangjin"><font color="RED"><label id="jiangjin"></label></font><br>
+<input type="button" value="验证" onclick="yanzheng()">
+</form>
+</body>
+</html>
