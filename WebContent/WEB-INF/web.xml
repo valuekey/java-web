@@ -44,4 +44,33 @@
   <security-role>
     <role-name>user</role-name>
   </security-role>
+  
+  
+  <servlet>
+    <servlet-name>he</servlet-name>
+    <jsp-file>/WEB-INF/hello.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>he</servlet-name>
+    <url-pattern>/hello.xxx</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>co</servlet-name>
+    <jsp-file>/WEB-INF/init.jsp</jsp-file>
+    <init-param>
+        <param-name>driver</param-name>
+        <param-value>mysqlDriver</param-value>
+    </init-param>
+    <init-param>
+        <param-name>url</param-name>
+        <param-value>www.baidu.com</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>co</servlet-name>
+    <url-pattern>/config.xxx</url-pattern>
+  </servlet-mapping>
+  
+  
 </web-app>
