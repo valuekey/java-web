@@ -8,6 +8,12 @@
 </head>
 <body>
 <%
+if ("1".equals(session.getAttribute("loginState"))) {
+    %>
+    <jsp:forward page="goods.jsp"></jsp:forward>
+    <%
+}
+
 String userid = request.getParameter("userid");
 String password = request.getParameter("password");
 String imagecode = request.getParameter("imagecode");
@@ -27,6 +33,10 @@ response.addCookie(cookie3);
 
 if (!imagecode.equals(rand)) {
     response.sendRedirect("login.jsp?failcode=1");
+} else if ("yyq".equals(userid) && "123".equals(password)) {
+    session.setAttribute("loginState", "1");
+    session.setAttribute("userid", userid);
+    response.sendRedirect("goods.jsp");
 }
 %>
 </body>

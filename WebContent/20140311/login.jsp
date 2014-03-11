@@ -45,6 +45,12 @@ function check() {
 </head>
 <body>
 <%
+if ("1".equals(session.getAttribute("loginState"))) {
+    %>
+    <jsp:forward page="goods.jsp"></jsp:forward>
+    <%
+}
+
 Cookie[] cookie = request.getCookies();
 String remenberpwd = null;
 String password = null;
