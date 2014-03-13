@@ -8,6 +8,7 @@ public class Emp {
     private String job;
     private Date hiredate;
     private float sal;
+    private String pic;
     public int getEmpno() {
         return empno;
     }
@@ -37,5 +38,11 @@ public class Emp {
     }
     public void setSal(float sal) {
         this.sal = sal;
+    }
+    public String getPic() {
+        return pic;
+    }
+    public void setPic(String pic) {
+        this.pic = pic;
     }
 }

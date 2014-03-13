@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -120,6 +122,38 @@ public class FileUploadTools {
                 }
                 input.close();
                 output.close();
+            }
+        }
+        
+        return names;
+    }
+    
+    public List<String> saveAll(Connection conn) throws Exception {
+        List<String> names = new ArrayList<String>();
+        
+        if (this.files.size() > 0) {
+            Set<String> keys = this.files.keySet();
+            Iterator<String> iter = keys.iterator();
+            InputStream input = null;
+            PreparedStatement pstmt = null;
+            while (iter.hasNext()) {
+                FileItem item = this.files.get(iter.next());
+                String fileName = new IPTimeStamp(this.request.getRemoteAddr()).getIPTimeRand() + "." + item.getName().split("\\.")[1];
+                //saveFile = new File(saveDir + fileName);
+                names.add(fileName);
+                
+                String sql = "insert into picstore (picname, pic) values (?,?)";
+                
+                pstmt = conn.prepareStatement(sql);
+                
+                input = item.getInputStream();
+                
+                pstmt.setString(1, fileName);
+                pstmt.setBinaryStream(2, input);
+                
+                pstmt.executeUpdate();
+                
+                input.close();
             }
         }
         
