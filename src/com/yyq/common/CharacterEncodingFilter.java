@@ -33,7 +33,7 @@ public class CharacterEncodingFilter implements Filter{
         // TODO Auto-generated method stub
         this.config = config;
         
-        String _encoding = config.getInitParameter("encoding");
+        String _encoding = this.config.getInitParameter("encoding");
         if (_encoding != null) {
             this.encoding = _encoding;
         }

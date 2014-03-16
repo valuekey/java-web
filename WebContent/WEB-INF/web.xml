@@ -24,6 +24,13 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
   
+  <listener>
+    <listener-class>com.yyq.listenerdemo.ServletContextListenerDemo</listener-class>
+  </listener>
+  <listener>
+    <listener-class>com.yyq.listenerdemo.ServletContextAttributeListenerDemo</listener-class>
+  </listener>
+  
   <security-constraint>
     <web-resource-collection>
         <web-resource-name>RegisteredUsers</web-resource-name>
