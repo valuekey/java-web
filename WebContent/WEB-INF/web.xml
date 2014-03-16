@@ -119,4 +119,12 @@
     <servlet-name>applicationdemo</servlet-name>
     <url-pattern>/ServletContextDemoServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>client</servlet-name>
+    <servlet-class>com.yyq.servletdemo.ClientRedirectDemo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>client</servlet-name>
+    <url-pattern>/20140316/ClientRedirectDemo</url-pattern>
+  </servlet-mapping>
 </web-app>
