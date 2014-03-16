@@ -30,7 +30,12 @@
   <listener>
     <listener-class>com.yyq.listenerdemo.ServletContextAttributeListenerDemo</listener-class>
   </listener>
-  
+  <listener>
+    <listener-class>com.yyq.listenerdemo.HttpSessionListenerDemo</listener-class>
+  </listener>
+  <listener>
+    <listener-class>com.yyq.listenerdemo.HttpSessionAttributeListenerDemo</listener-class>
+  </listener>
   <security-constraint>
     <web-resource-collection>
         <web-resource-name>RegisteredUsers</web-resource-name>
@@ -151,4 +156,8 @@
     <servlet-name>login</servlet-name>
     <url-pattern>/20140316/LoginServlet</url-pattern>
   </servlet-mapping>
+  
+  <session-config>
+    <session-timeout>1</session-timeout>
+  </session-config>
 </web-app>
