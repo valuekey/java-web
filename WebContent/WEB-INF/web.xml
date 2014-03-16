@@ -101,4 +101,13 @@
     <servlet-name>init</servlet-name>
     <url-pattern>/init</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>sessiondemo</servlet-name>
+    <servlet-class>com.yyq.servletdemo.HttpSessionDemoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>sessiondemo</servlet-name>
+    <url-pattern>/HttpSessionDemoServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
