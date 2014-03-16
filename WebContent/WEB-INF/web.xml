@@ -135,4 +135,13 @@
     <servlet-name>server</servlet-name>
     <url-pattern>/20140316/ServerRedirectDemo</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>login</servlet-name>
+    <servlet-class>com.yyq.demo.servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>login</servlet-name>
+    <url-pattern>/20140316/LoginServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

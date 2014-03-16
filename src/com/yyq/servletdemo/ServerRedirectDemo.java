@@ -16,6 +16,7 @@ public class ServerRedirectDemo extends HttpServlet{
         req.setAttribute("info", "hhaa");
         RequestDispatcher rd = req.getRequestDispatcher("get_info.jsp");
         rd.forward(req, resp);
+        System.out.println("看看");
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
