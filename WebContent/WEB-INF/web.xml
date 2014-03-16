@@ -71,6 +71,34 @@
     <servlet-name>co</servlet-name>
     <url-pattern>/config.xxx</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>hello</servlet-name>
+    <servlet-class>com.yyq.servletdemo.HelloServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>hello</servlet-name>
+    <url-pattern>/helloServlet</url-pattern>
+  </servlet-mapping>
   
+  <servlet>
+    <servlet-name>input</servlet-name>
+    <servlet-class>com.yyq.servletdemo.InputServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>input</servlet-name>
+    <url-pattern>/20140316/InputServlet</url-pattern>
+  </servlet-mapping>
   
+  <servlet>
+    <servlet-name>init</servlet-name>
+    <servlet-class>com.yyq.servletdemo.InitParamServlet</servlet-class>
+    <init-param>
+        <param-name>ref</param-name>
+        <param-value>parameter=haha</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>init</servlet-name>
+    <url-pattern>/init</url-pattern>
+  </servlet-mapping>
 </web-app>
