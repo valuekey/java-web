@@ -110,4 +110,13 @@
     <servlet-name>sessiondemo</servlet-name>
     <url-pattern>/HttpSessionDemoServlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>applicationdemo</servlet-name>
+    <servlet-class>com.yyq.servletdemo.ServletContextDemoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>applicationdemo</servlet-name>
+    <url-pattern>/ServletContextDemoServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
