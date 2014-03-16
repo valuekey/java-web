@@ -127,4 +127,12 @@
     <servlet-name>client</servlet-name>
     <url-pattern>/20140316/ClientRedirectDemo</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>server</servlet-name>
+    <servlet-class>com.yyq.servletdemo.ServerRedirectDemo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>server</servlet-name>
+    <url-pattern>/20140316/ServerRedirectDemo</url-pattern>
+  </servlet-mapping>
 </web-app>
