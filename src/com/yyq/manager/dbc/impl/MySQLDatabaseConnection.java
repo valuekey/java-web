@@ -3,7 +3,9 @@ package com.yyq.manager.dbc.impl;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-import com.yyq.demo.dbc.DataBaseConntction;
+import com.yyq.manager.dbc.DataBaseConntction;
+
+
 
 public class MySQLDatabaseConnection implements DataBaseConntction {
     private static final String DBDRIVER = "com.mysql.jdbc.Driver";

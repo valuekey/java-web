@@ -123,7 +123,7 @@ public class EmpDAOImpl implements IEmpDAO{
         }
         
         this.pstmt.close();
-        return null;
+        return emp;
     }
 
 }

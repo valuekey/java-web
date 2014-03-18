@@ -153,6 +153,23 @@
     <servlet-name>login</servlet-name>
     <url-pattern>/20140316/LoginServlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>emp_input</servlet-name>
+    <servlet-class>com.yyq.manager.servlet.EmpInputServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>emp_input</servlet-name>
+    <url-pattern>/20140318/EmpInputServlet</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>emp_show</servlet-name>
+    <servlet-class>com.yyq.manager.servlet.EmpShowServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>emp_show</servlet-name>
+    <url-pattern>/20140318/EmpShowServlet</url-pattern>
+  </servlet-mapping>
   <session-config>
     <session-timeout>1</session-timeout>
   </session-config>
