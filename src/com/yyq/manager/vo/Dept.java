@@ -156,4 +156,10 @@ public class Dept implements Serializable {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+	    StringBuffer buff = new StringBuffer();
+	    buff.append(this.getDeptno() + ", " + this.getDname());
+	    return new String(buff);
+	}
 }
