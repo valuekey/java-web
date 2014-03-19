@@ -37,6 +37,6 @@ pageContext.setAttribute("info", "haha");
         ${url }
     </u:simpleiterate> 
 
-
+<u:add num1="0.417" num2="0.13" num3="1123.7"/>
 </body>
 </html>
