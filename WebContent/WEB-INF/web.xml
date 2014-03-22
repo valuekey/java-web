@@ -170,8 +170,19 @@
     <servlet-name>emp_show</servlet-name>
     <url-pattern>/20140318/EmpShowServlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>CheckServlet</servlet-name>
+    <servlet-class>com.yyq.servletdemo.CheckServlet</servlet-class>
+    
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckServlet</servlet-name>
+    <url-pattern>/20140322/CheckServlet</url-pattern>
+  </servlet-mapping>
+  
   <session-config>
-    <session-timeout>1</session-timeout>
+    <session-timeout>30</session-timeout>
   </session-config>
   <resource-ref>
     <description>DB Connection</description>

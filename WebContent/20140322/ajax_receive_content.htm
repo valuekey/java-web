@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+var xmlHttp;
+function createXMLHttp() {
+    if (window.XMLHttpRequest) {
+        xmlHttp = new XMLHttpRequest();
+    } else {
+        xmlHttp = new ActiveXObject("Microsoft.XMLHttp");
+    }
+}
+function showMsg() {
+    createXMLHttp();
+    xmlHttp.open("POST","content.htm");
+    xmlHttp.onreadystatechange = showMsgCallBack;
+    xmlHttp.send(null);
+}
+
+function showMsgCallBack() {
+    if (xmlHttp.readyState == 4) {
+        if (xmlHttp.status == 200) {
+            var text = xmlHttp.responseText;
+            document.getElementById("msg").innerHTML = text;
+        }
+    }
+}
+</script>
+<button onclick="showMsg()"/>ajax!~</button><br>
+<label id="msg"></label>
+</body>
+</html>

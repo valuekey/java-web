@@ -4,11 +4,21 @@ SET SESSION FOREIGN_KEY_CHECKS=0;
 
 DROP TABLE emp;
 DROP TABLE dept;
+DROP TABLE user;
 
 
 
 
 /* Create Tables */
+
+CREATE TABLE dept
+(
+	deptno int(2) NOT NULL,
+	dname varchar(14),
+	loc varchar(13),
+	PRIMARY KEY (deptno)
+);
+
 
 CREATE TABLE emp
 (
@@ -20,17 +30,17 @@ CREATE TABLE emp
 	comm float(7,2),
 	mgr int(4),
 	deptno int(2) NOT NULL,
-	photo varchar(100),
+	photo varchar(500),
 	PRIMARY KEY (empno)
 );
 
 
-CREATE TABLE dept
+CREATE TABLE user
 (
-	deptno int(2) NOT NULL,
-	dname varchar(14),
-	loc varchar(13),
-	PRIMARY KEY (deptno)
+	userid varchar(30) NOT NULL,
+	name varchar(30),
+	password varchar(32),
+	PRIMARY KEY (userid)
 );
 
 
