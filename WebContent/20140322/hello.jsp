@@ -18,6 +18,8 @@
 请输入信息：<html:text property="info"></html:text>
 <html:submit value="显示"></html:submit>
 </html:form>
-
+<html:messages id="mmm" message="true">
+    ${mmm }
+</html:messages>
 </body>
 </html:html>

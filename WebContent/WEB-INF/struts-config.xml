@@ -5,6 +5,7 @@
 <struts-config>
     <form-beans>
         <form-bean name="helloForm" type="com.yyq.demo.struts.form.HelloForm"></form-bean>
+        <form-bean name="registForm" type="com.yyq.demo.struts.form.RegistForm"></form-bean>
     </form-beans>
     <global-exceptions></global-exceptions>
     <global-forwards></global-forwards>
@@ -13,6 +14,11 @@
             type="com.yyq.demo.struts.action.HelloAction">
             <forward name="show" path="/20140322/hello.jsp"></forward>
         </action>
+        <action path="/20140322/regist" attribute="registForm" scope="request" name="registForm" input="/20140322/regist.jsp"
+            type="com.yyq.demo.struts.action.RegistAction">
+            <forward name="seccess" path="/20140322/regist.jsp"></forward>
+        </action>
     </action-mappings>
+    
     <message-resources parameter="com.yyq.demo.struts.ApplicationResources"></message-resources>
 </struts-config>
