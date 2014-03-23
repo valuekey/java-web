@@ -8,7 +8,9 @@
         <form-bean name="registForm" type="com.yyq.demo.struts.form.RegistForm"></form-bean>
     </form-beans>
     <global-exceptions></global-exceptions>
-    <global-forwards></global-forwards>
+    <global-forwards>
+        <forward name="hello" path="/20140323/hello.jsp"></forward>
+    </global-forwards>
     <action-mappings>
         <action path="/20140322/hello" attribute="helloForm" scope="request" name="helloForm" input="/20140322/hello.jsp"
             type="com.yyq.demo.struts.action.HelloAction">
