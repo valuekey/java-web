@@ -7,6 +7,8 @@
         <form-bean name="helloForm" type="com.yyq.demo.struts.form.HelloForm"></form-bean>
         <form-bean name="registForm" type="com.yyq.demo.struts.form.RegistForm"></form-bean>
         <form-bean name="htmlTagDemoForm" type="com.yyq.demo.struts.form.HtmlTagDemoForm"></form-bean>
+        <form-bean name="tokenForm" type="com.yyq.demo.struts.form.TokenForm"></form-bean>
+        <form-bean name="tokenCheckForm" type="com.yyq.demo.struts.form.TokenCheckForm"></form-bean>
     </form-beans>
     <global-exceptions></global-exceptions>
     <global-forwards>
@@ -25,6 +27,16 @@
             scope="request" name="htmlTagDemoForm" input="/20140323/html_tag_demo.jsp"
             type="com.yyq.demo.struts.action.HtmlTagDemoAction"
         ></action>
+        <action path="/20140324/get_token" attribute="tokenForm" name="tokenForm" scope="request"
+            input="/20140324/link.html" type="com.yyq.demo.struts.action.TokenAction"
+        >
+            <forward name="forward" path="/20140324/tokencheck.jsp"></forward>
+        </action>
+        
+        <action path="/20140324/tokencheck" attribute="tokenCheckForm" name="tokenCheckForm" scope="request"
+            input="/20140324/tokencheck.jsp" type="com.yyq.demo.struts.action.TokenCheckAction" >
+                <forward name="seccess" path="/20140324/getname.jsp"></forward>
+            </action>
     </action-mappings>
     
     <message-resources parameter="com.yyq.demo.struts.ApplicationResources"></message-resources>
