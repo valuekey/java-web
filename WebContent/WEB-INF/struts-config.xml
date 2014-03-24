@@ -13,6 +13,12 @@
         <form-bean name="dynamic1" type="org.apache.struts.action.DynaActionForm">
             <form-property name="info" type="java.lang.String"/>
         </form-bean>
+        <form-bean name="registerDemoForm" type="org.apache.struts.validator.DynaValidatorActionForm">
+            <form-property name="mid" type="java.lang.String"/>
+            <form-property name="age" type="java.lang.Integer"/>
+            <form-property name="birthday" type="java.lang.String"/>
+            <form-property name="email" type="java.lang.String"/>
+        </form-bean>
     </form-beans>
     <global-exceptions></global-exceptions>
     <global-forwards>
@@ -46,7 +52,15 @@
             type="com.yyq.demo.struts.action.UploadFileAction"/>
         <action path="/20140324/dynamic" attribute="dynamic1" name="dynamic1" scope="request"
             type="com.yyq.demo.struts.action.DynamicActionTest"/>
+        <action path="/20140324/forward1" type="org.apache.struts.actions.ForwardAction" parameter="/20140324/hello.jsp"></action>
+        <action path="/20140324/include1" type="org.apache.struts.actions.IncludeAction" parameter="/20140324/hello.jsp"></action>
+        <action path="/20140324/register" type="com.yyq.demo.struts.action.RegisterDemoAction" parameter="method" attribute="registerDemoForm"
+        name="registerDemoForm" input="/20140324/register.jsp" validate="true"/>
     </action-mappings>
     
     <message-resources parameter="com.yyq.demo.struts.ApplicationResources"></message-resources>
+    
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property value="/WEB-INF/xml/validator-rules.xml,/WEB-INF/main/validation.xml" property="pathnames"/>
+    </plug-in>
 </struts-config>
