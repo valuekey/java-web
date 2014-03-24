@@ -10,6 +10,9 @@
         <form-bean name="tokenForm" type="com.yyq.demo.struts.form.TokenForm"></form-bean>
         <form-bean name="tokenCheckForm" type="com.yyq.demo.struts.form.TokenCheckForm"></form-bean>
         <form-bean name="uploadFileForm" type="com.yyq.demo.struts.form.UploadFileForm"></form-bean>
+        <form-bean name="dynamic1" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="info" type="java.lang.String"/>
+        </form-bean>
     </form-beans>
     <global-exceptions></global-exceptions>
     <global-forwards>
@@ -41,6 +44,8 @@
         
         <action path="/20140324/upload" attribute="uploadFileForm" name="uploadFileForm" scope="request"
             type="com.yyq.demo.struts.action.UploadFileAction"/>
+        <action path="/20140324/dynamic" attribute="dynamic1" name="dynamic1" scope="request"
+            type="com.yyq.demo.struts.action.DynamicActionTest"/>
     </action-mappings>
     
     <message-resources parameter="com.yyq.demo.struts.ApplicationResources"></message-resources>
