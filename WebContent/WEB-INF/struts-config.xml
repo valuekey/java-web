@@ -9,6 +9,7 @@
         <form-bean name="htmlTagDemoForm" type="com.yyq.demo.struts.form.HtmlTagDemoForm"></form-bean>
         <form-bean name="tokenForm" type="com.yyq.demo.struts.form.TokenForm"></form-bean>
         <form-bean name="tokenCheckForm" type="com.yyq.demo.struts.form.TokenCheckForm"></form-bean>
+        <form-bean name="uploadFileForm" type="com.yyq.demo.struts.form.UploadFileForm"></form-bean>
     </form-beans>
     <global-exceptions></global-exceptions>
     <global-forwards>
@@ -36,7 +37,10 @@
         <action path="/20140324/tokencheck" attribute="tokenCheckForm" name="tokenCheckForm" scope="request"
             input="/20140324/tokencheck.jsp" type="com.yyq.demo.struts.action.TokenCheckAction" >
                 <forward name="seccess" path="/20140324/getname.jsp"></forward>
-            </action>
+        </action>
+        
+        <action path="/20140324/upload" attribute="uploadFileForm" name="uploadFileForm" scope="request"
+            type="com.yyq.demo.struts.action.UploadFileAction"/>
     </action-mappings>
     
     <message-resources parameter="com.yyq.demo.struts.ApplicationResources"></message-resources>
