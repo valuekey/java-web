@@ -1,9 +1,0 @@
-<!-- kandedao -->
-<%-- kanbudao --%>
-<%
-//haha
-/*
-hoho
-*/
-%>
-

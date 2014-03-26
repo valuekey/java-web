@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<city-list>
+    <city>
+        <city-code>001</city-code>
+        <city-name>北京</city-name>
+    </city>
+    <city>
+        <city-code>002</city-code>
+        <city-name>沈阳</city-name>
+    </city>
+    <city>
+        <city-code>003</city-code>
+        <city-name>铁岭</city-name>
+    </city>
+</city-list>
