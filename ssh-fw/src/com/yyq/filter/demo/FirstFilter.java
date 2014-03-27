@@ -10,7 +10,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
-@WebFilter(filterName="charset", urlPatterns={"/*"})
+//@WebFilter(filterName="charset", urlPatterns={"/*"})
 public class FirstFilter implements Filter{
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse resp,

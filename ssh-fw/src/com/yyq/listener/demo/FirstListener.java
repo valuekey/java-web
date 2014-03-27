@@ -1,4 +1,4 @@
-package com.yyq.listener;
+package com.yyq.listener.demo;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
