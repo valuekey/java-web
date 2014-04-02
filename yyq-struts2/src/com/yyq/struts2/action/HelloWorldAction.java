@@ -1,9 +1,14 @@
 package com.yyq.struts2.action;
 
+import org.apache.struts2.ServletActionContext;
+
 
 public class HelloWorldAction{
 	public String execute() throws Exception {
-		System.out.println("execute");
+		
+		String path = ServletActionContext.getServletContext().getRealPath("/");
+		
+		System.out.println(path);
 		return "success";
 	}
 	

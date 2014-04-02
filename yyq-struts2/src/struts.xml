@@ -8,19 +8,14 @@
 	<!-- 启动开发模式 -->
 	<constant name="struts.devMode" value="true"></constant>
 	
-	<package name="test" namespace="/test" extends="struts-default">
-		<default-action-ref name="404"/>
+	<constant name="struts.custom.i18n.resources" value="mess"></constant>
 	
+	<package name="main" namespace="/test" extends="struts-default">
 		<action name="*_*" class="com.yyq.struts2.action.{1}" method="{2}">
 			<result name="success">/index.jsp</result>
 			<result name="save">/index.jsp</result>
 			<result name="upload">/index.jsp</result>
 		</action>
-		
-		<action name="404">
-			<result>/404.jsp</result>
-		</action>
-		
 	</package>
-	
+	<include file="com/yyq/struts2/action/*.xml"></include>
 </struts>
