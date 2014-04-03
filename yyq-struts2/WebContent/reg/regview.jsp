@@ -8,9 +8,11 @@
 <title>regview.jsp</title>
 </head>
 <body>
-<s:form action="RegAction_reg" namespace="/regns" enctype="multipart/form-data">
+<s:form action="RegAction_reg" namespace="/regns" enctype="multipart/form-data" method="post">
 	<s:textfield name="name" key="username"/>
 	<s:textfield name="age" key="age" />
+	<s:file name="photo" key="photo" />
+	<s:file name="photo" key="photo" />
 	<s:file name="photo" key="photo" />
 	<s:submit />
 </s:form>

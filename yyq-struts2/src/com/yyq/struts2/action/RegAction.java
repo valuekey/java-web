@@ -13,29 +13,31 @@ public class RegAction extends ActionSupport {
 	private String name;
 	private Integer age;
 	
-	private File photo;
-	private String photoFileName;
-	private String photoContentType;
-	
-	
-	public File getPhoto() {
+	public File[] getPhoto() {
 		return photo;
 	}
-	public void setPhoto(File photo) {
+	public void setPhoto(File[] photo) {
 		this.photo = photo;
 	}
-	public String getPhotoFileName() {
+	public String[] getPhotoFileName() {
 		return photoFileName;
 	}
-	public void setPhotoFileName(String photoFileName) {
+	public void setPhotoFileName(String[] photoFileName) {
 		this.photoFileName = photoFileName;
 	}
-	public String getPhotoContentType() {
+	public String[] getPhotoContentType() {
 		return photoContentType;
 	}
-	public void setPhotoContentType(String photoContentType) {
+	public void setPhotoContentType(String[] photoContentType) {
 		this.photoContentType = photoContentType;
 	}
+
+
+	private File[] photo;
+	private String[] photoFileName;
+	private String[] photoContentType;
+	
+	
 	public String getName() {
 		return name;
 	}
@@ -58,13 +60,22 @@ public class RegAction extends ActionSupport {
 	
 	public String reg() {
 		
-		String ext = this.photoFileName.substring(this.photoFileName.lastIndexOf("."));
-		String path = ServletActionContext.getServletContext().getRealPath("/") + getText("upload.file.dir");
-		Long l = System.nanoTime();
-		
-		File newFile = new File(path, l + ext);
-		
-		this.photo.renameTo(newFile);
+		for (int i = 0; i < photo.length; i++) {
+			
+			String ext = "";
+			
+			if (this.photoFileName[i].lastIndexOf(".") != -1) {
+				ext = this.photoFileName[i].substring(this.photoFileName[i].lastIndexOf("."));
+			}
+			
+			String path = ServletActionContext.getServletContext().getRealPath("/") + getText("upload.file.dir");
+			Long l = System.nanoTime();
+			
+			File newFile = new File(path, l + ext);
+			
+			this.photo[i].renameTo(newFile);
+		}
+
 		
 		return SUCCESS;
 	}

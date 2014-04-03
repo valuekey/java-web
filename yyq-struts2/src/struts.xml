@@ -10,6 +10,8 @@
 	
 	<constant name="struts.custom.i18n.resources" value="mess"></constant>
 	
+	<constant name="struts.multipart.maxSize" value="-1"></constant>
+	
 	<package name="main" namespace="/test" extends="struts-default">
 		<action name="*_*" class="com.yyq.struts2.action.{1}" method="{2}">
 			<result name="success">/index.jsp</result>

@@ -11,7 +11,9 @@
 			<result name="input">/reg/regview.jsp</result>
 			
 			<interceptor-ref name="defaultStack">
+				<param name="fileUpload.maximumSize">512500</param>
 				<param name="validation.excludeMethods">input,back,cancel,browse,toRegView</param>
+				<param name="fileUpload.allowedExtensions">.txt</param>
 			</interceptor-ref>
 			
 		</action>
