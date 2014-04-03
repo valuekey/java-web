@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="loginPkg" namespace="/login" extends="my-struts-default">
+		<action name="LoginAction_*" class="com.yyq.struts2.intercepter.LoginAction" method="{1}">
+			<result name="success">/login/success.jsp</result>
+			<result name="error">/login/error.jsp</result>
+			<result name="login">/login.jsp</result>
+			
+		</action>
+	</package>
+	
+</struts>

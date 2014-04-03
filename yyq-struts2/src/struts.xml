@@ -12,7 +12,28 @@
 	
 	<constant name="struts.multipart.maxSize" value="-1"></constant>
 	
-	<package name="main" namespace="/test" extends="struts-default">
+	
+	<package name="my-struts-default" extends="struts-default" abstract="true" >
+		
+		<interceptors>
+			<interceptor name="login" class="com.yyq.struts2.intercepter.LoginInterceptor" />
+			<interceptor-stack name="my-defaultStack">
+				<interceptor-ref name="login" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="my-defaultStack" />
+		
+		<global-results>
+			<result name="login">/login.jsp</result>
+		</global-results>
+		
+		
+		
+	</package>
+	
+	<package name="main" namespace="/test" extends="my-struts-default">
 		<action name="*_*" class="com.yyq.struts2.action.{1}" method="{2}">
 			<result name="success">/index.jsp</result>
 			<result name="save">/index.jsp</result>

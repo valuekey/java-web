@@ -3,14 +3,14 @@
     "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
     "http://struts.apache.org/dtds/struts-2.1.7.dtd">
 <struts>
-	<package name="reg" namespace="/regns" extends="struts-default">
+	<package name="reg" namespace="/regns" extends="my-struts-default">
 		<action name="RegAction_*" class="com.yyq.struts2.action.RegAction" method="{1}">
 			<result name="success">/reg/success.jsp</result>
 			<result name="error">/reg/error.jsp</result>
 			<result name="regview">/reg/regview.jsp</result>
 			<result name="input">/reg/regview.jsp</result>
 			
-			<interceptor-ref name="defaultStack">
+			<interceptor-ref name="my-defaultStack">
 				<param name="fileUpload.maximumSize">512500</param>
 				<param name="validation.excludeMethods">input,back,cancel,browse,toRegView</param>
 				<param name="fileUpload.allowedExtensions">.txt</param>

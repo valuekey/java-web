@@ -3,7 +3,7 @@
     "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
     "http://struts.apache.org/dtds/struts-2.1.7.dtd">
 <struts>
-	<package name="tokenPakge" namespace="/token" extends="struts-default">
+	<package name="tokenPakge" namespace="/token" extends="my-struts-default">
 		<action name="TokenAction_*" class="com.yyq.struts2.token.TokenAction" method="{1}">
 			<result name="success">/token/success.jsp</result>
 			<result name="error">/token/error.jsp</result>
@@ -11,11 +11,11 @@
 			<result name="input">/token/tokenView.jsp</result>
 			<result name="invalid.token">/token/tokenView.jsp</result>
 			
-			
 			<interceptor-ref name="token">
 				<param name="excludeMethods">toTokenView</param>
 			</interceptor-ref>
-			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="my-defaultStack" />
+
 			
 		</action>
 	</package>
