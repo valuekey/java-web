@@ -60,7 +60,7 @@ public class RegAction extends ActionSupport {
 	
 	public String reg() {
 		
-		for (int i = 0; i < photo.length; i++) {
+		for (int i = 0; i < (photo == null ? 0 : photo.length); i++) {
 			
 			String ext = "";
 			

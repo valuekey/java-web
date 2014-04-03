@@ -19,5 +19,5 @@
 			<result name="upload">/index.jsp</result>
 		</action>
 	</package>
-	<include file="com/yyq/struts2/action/*.xml"></include>
+	<include file="com/yyq/struts2/*/*.xml"></include>
 </struts>
